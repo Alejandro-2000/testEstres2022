@@ -1,0 +1,8 @@
+body{
+    font-family: "Arial";
+    background: #0dcaf0;
+
+}
+body>header>nav>ul>li>a{
+    font-size: 50px;
+}
