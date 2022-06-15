@@ -9,6 +9,6 @@ class Sexo extends Model
 {
     use HasFactory;
     protected $table = "sexo";
-    protected $primaryKey = "id";
-    protected $fillable = ['descripcion'];
+    protected $primaryKey = "id_sexo";
+    protected $fillable = ['descripcion_sexo'];
 }

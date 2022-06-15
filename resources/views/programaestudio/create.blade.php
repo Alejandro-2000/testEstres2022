@@ -1,7 +1,7 @@
 <!-- Modal para insertar datos-->
 <div class="modal fade" id="modal_agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form method="POST" action="{{ route('sexos.store') }}"  role="form" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('programaestudio.store') }}"  role="form" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Nuevo Registro</h5>
@@ -13,10 +13,10 @@
                         <div class="box-body">
 
                             <div class="form-group">
-                                <label for="descripcion">Descripcion</label>
-                                <input type="text" name="descripcion" class="form-control{{$errors->has('descripcion') ? ' is-invalid' : ''}}" placeholder="Descripcion">
-                                @if($errors->has('descripcion')) {{--creacion de un span en caso de existir error--}}
-                                <span class="text-danger">{{ $errors->first('descripcion') }}</span>
+                                <label for="descripcion_carrera">Descripcion</label>
+                                <input type="text" name="descripcion_carrera" class="form-control{{$errors->has('descripcion_carrera') ? ' is-invalid' : ''}}" placeholder="Descripcion">
+                                @if($errors->has('descripcion_carrera')) {{--creacion de un span en caso de existir error--}}
+                                <span class="text-danger">{{ $errors->first('descripcion_carrera') }}</span>
                                 @endif
                             </div>
 

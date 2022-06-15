@@ -15,43 +15,36 @@
         <thead class="thead-light">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Nombre Completo</th>
-            <th scope="col">Estado Civil</th>
-            <th scope="col">Sexo</th>
-            <th scope="col">Grado Academico</th>
-            <th scope="col">Correo</th>
+            <th scope="col">Descripcion</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($datos_personas as $persona)
+        @foreach($datos_preguntas as $pregunta)
             <tr>
-                <td scope="row">{{$loop->index+1}}</th>
-                <td scope="row">{{$persona->nombre}}</th>
-                <td scope="row">{{$persona->descripcion}}</th>
-                <td scope="row">{{$persona->descripcion_sexo}}</th>
-                <td scope="row">{{$persona->enunciado}}</th>
-                <td scope="row">{{$persona->correo}}</th>
+
+                <th scope="row">{{$loop->index+1}}</th>
+                <td>{{$pregunta->enunciado_pregunta}}</td>
                 <td>
                 <td>
                     {{--boton para editar primero debe conocer cual es el id que se desea editar entrando al metodo edit--}}
-                    <a href="{{route("personas.edit",$persona->id)}}" class="btn btn-sm btn-success"><i class="far fa-edit"></i></a>
+                    <a href="{{route("preguntas.edit",$pregunta->id_pregunta)}}" class="btn btn-sm btn-success"><i class="far fa-edit"></i></a>
                 </td>
                 <td>
                     {{--boton para editar primero debe conocer cual es el id que se desea editar entrando al metodo edit--}}
-                    <a href="{{route("personas.show",$persona->id)}}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+                    <a href="{{route("preguntas.show",$pregunta->id_pregunta)}}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         @endforeach
     </table>
     {{--incluir las vistas donde estan los datos--}}
-    @include("personas.create")
+    @include("preguntas.create")
 
     @if(session("modal_edit"))
-        @include("personas.edit")
+        @include("preguntas.edit")
     @endif
 
     @if(session("modal_delete"))
-        @include("personas.delete")
+        @include("preguntas.delete")
     @endif
 
     {{--condicion para diferenciar los metodos agregar y editar--}}
@@ -59,7 +52,7 @@
     @if(array_key_exists("_method",Session::get("_old_input"))) {{--::get es una llamada a un metodo abstracto para sacar el valor del parametro que recibe--}}
     mensaje desde la validacion de editar
     {{--dd(session()->all())--}}
-    @include("personas.edit")
+    @include("preguntas.edit")
     @else
         mensaje de validacion desde crear
         {{--recargar el modal si es que existe un error de validacion en algun dato--}}

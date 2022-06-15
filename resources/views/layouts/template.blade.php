@@ -71,22 +71,22 @@
                                 Respuestas
                             </a>
 
-                            <a class="nav-link" href="{{url("/programa_estudio")}}">
+                            <a class="nav-link" href="{{url("/programaestudio")}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Programa de Estudio
                             </a>
 
-                            <a class="nav-link" href="{{url("/grado_academico")}}">
+                            <a class="nav-link" href="{{url("/gradoacademico")}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Grado Academico
                             </a>
 
-                            <a class="nav-link" href="{{url("/estado_civil")}}">
+                            <a class="nav-link" href="{{url("/estadocivil")}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Estado Civil
                             </a>
 
-                            <a class="nav-link" href="{{url("/sexos")}}">
+                            <a class="nav-link" href="{{url("/sexo")}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Sexo
                             </a>
@@ -109,11 +109,11 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                            <div class="text-muted">Copyright &copy; TESVB 2022</div>
                             <div>
-                                <a href="#">Privacy Policy</a>
+                                <a href="#">Politicas de Privacidad</a>
                                 &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                                <a href="#">Terminos &amp; Condiciones</a>
                             </div>
                         </div>
                     </div>
@@ -123,6 +123,8 @@
         <script src="{{asset("js/all.min.js")}}" crossorigin="anonymous"></script>
         <script src="{{asset("js/bootstrap.bundle.min.js")}}" crossorigin="anonymous"></script>
         <script src="{{asset("js/scripts.js")}}" crossorigin="anonymous"></script>
+        @stack("scripts")
+
         <!--
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>

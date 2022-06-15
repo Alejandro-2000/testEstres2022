@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GradoAcademico;
 use App\Models\Personas;
+use App\Models\Sexo;
 use Illuminate\Http\Request;
+use App\Models\EstadoCivil;
 
 class PersonasController extends Controller
 {
@@ -14,10 +17,17 @@ class PersonasController extends Controller
      */
     public function index()
     {
-        $datos_personas=Personas::all();
-        return view ("personas.index",compact("datos_personas"));
-        
+        $datos_personas=Personas::join("estado_civil","personas.id_estadocivil","estado_civil.id")
+            ->join("sexo","personas.id_sexo","sexo.id")
+            ->join("grado_acad","personas.id_gradoacad","grado_acad.id")
+            ->select("personas.*","estado_civil.descripcion","grado_acad.enunciado","sexo.descripcion_sexo")
+            ->get();
 
+        $datos_estado_civil=EstadoCivil::all();
+        $datos_gradoacad=GradoAcademico::all();
+        $datos_sexo=Sexo::all();
+        //dd($datos_personas);
+        return view("personas.index",compact("datos_personas","datos_estado_civil","datos_sexo","datos_gradoacad"));
     }
 
     /**
@@ -38,7 +48,7 @@ class PersonasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -47,7 +57,7 @@ class PersonasController extends Controller
      * @param  \App\Models\Personas  $personas
      * @return \Illuminate\Http\Response
      */
-    public function show(Personas $personas)
+    public function show(Personas $persona)
     {
         //
     }
@@ -58,7 +68,7 @@ class PersonasController extends Controller
      * @param  \App\Models\Personas  $personas
      * @return \Illuminate\Http\Response
      */
-    public function edit(Personas $personas)
+    public function edit(Personas $persona)
     {
         //
     }
@@ -70,7 +80,7 @@ class PersonasController extends Controller
      * @param  \App\Models\Personas  $personas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Personas $personas)
+    public function update(Request $request, Personas $persona)
     {
         //
     }
@@ -81,7 +91,7 @@ class PersonasController extends Controller
      * @param  \App\Models\Personas  $personas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Personas $personas)
+    public function destroy(Personas $persona)
     {
         //
     }

@@ -17,7 +17,7 @@ class SexoController extends Controller
         //
         /*metodo para mostrar los datos de la tabla*/
         $datos_sexo=Sexo::all(); //metodo para sacar los datos de la tabla sexo
-        return view("sexos.index",compact("datos_sexo"));
+        return view("sexo.index",compact("datos_sexo"));
     }
 
     /**
@@ -40,12 +40,12 @@ class SexoController extends Controller
     {
         //
         $request->validate([
-            'descripcion' => 'required'
+            'descripcion_sexo' => 'required'
         ]);
 
         $datos_sexo = $request->all();
         Sexo::create($datos_sexo); //metodo para guardar los datos en la variable
-        return redirect()->route('sexos.index');
+        return redirect()->route('sexo.index');
     }
 
     /**
@@ -83,11 +83,11 @@ class SexoController extends Controller
     {
         //
         $request->validate([
-            'descripcion' => 'required|alpha'
+            'descripcion_sexo' => 'required|alpha'
         ]);
 
         $sexo->update($request->all());
-        return redirect('sexos');
+        return redirect('sexo');
     }
 
     /**
@@ -100,6 +100,6 @@ class SexoController extends Controller
     {
         //
         $sexo->delete();
-        return redirect('sexos');
+        return redirect('sexo');
     }
 }

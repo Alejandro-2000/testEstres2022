@@ -3,15 +3,13 @@
     <div class="modal-dialog">
 
     @php
-        $edit_sexo = Session::has("edit_sexo") ? session("edit_sexo") : Session::get("_old_input");
-
+        $edit_pregunta = Session::has("edit_pregunta") ? session("edit_pregunta") : Session::get("_old_input");
     @endphp
 
     <!-- Modal content-->
-        <form method="POST"  action="{{url('/sexos/'.(isset($edit_sexo->id) ? $edit_sexo->id : $edit_sexo["id"]))}}" role="form" enctype="multipart/form-data">
+        <form method="POST"  action="{{url('/preguntas/'.(isset($edit_pregunta->id_pregunta) ? $edit_pregunta->id_pregunta : $edit_pregunta["id_pregunta"]))}}" role="form" enctype="multipart/form-data">
             <div class="modal-content">
-                <input type="hidden" value="{{isset($edit_sexo->id) ? $edit_sexo->descripcion : $edit_sexo["id"]}}" name="id">
-                {{dd($edit_sexo)}}
+                <input type="hidden" value="{{isset($edit_pregunta->id_pregunta) ? $edit_pregunta->enunciado_pregunta : $edit_pregunta["id_pregunta"]}}" name="id">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Editar Registro</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -31,10 +29,10 @@
                                                 {{ method_field('PATCH') }}
 
                                                 <div class="form-group">
-                                                    <label for="descripcion">Descripcion</label>
-                                                    <input type="text" name="descripcion" value="{{isset($edit_sexo->descripcion) ? $edit_sexo->descripcion : $edit_sexo["descripcion"]}}" class="form-control{{$errors->has('descripcion') ? ' is-invalid' : ''}}" placeholder="Descripcion">
-                                                    @if($errors->has('descripcion')) {{--creacion de un span en caso de existir error--}}
-                                                    <span class="text-danger">{{ $errors->first('descripcion') }}</span>
+                                                    <label for="enunciado_pregunta">Descripcion</label>
+                                                    <input type="text" name="enunciado_pregunta" value="{{isset($edit_pregunta->enunciado_pregunta) ? $edit_pregunta->enunciado_pregunta : $edit_pregunta["enunciado_pregunta"]}}" class="form-control{{$errors->has('enunciado_pregunta') ? ' is-invalid' : ''}}" placeholder="Descripcion">
+                                                    @if($errors->has('enunciado_pregunta')) {{--creacion de un span en caso de existir error--}}
+                                                    <span class="text-danger">{{ $errors->first('enunciado_pregunta') }}</span>
                                                     @endif
                                                 </div>
 
@@ -56,9 +54,9 @@
 </div>
 
 {{--script para lanzar el modal--}}
-@section("scripts")
+@push("scripts")
     <script type="text/javascript">
         new bootstrap.Modal(document.getElementById('modal-edit')).show();
     </script>
-@endsection
+@endpush
 

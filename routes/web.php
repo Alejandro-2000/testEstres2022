@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Route;
 /*ruta del controlador*/
 use App\Http\Controllers\PersonasController;
 use App\Http\Controllers\SexoController;
+use App\Http\Controllers\EstadoCivilController;
+use App\Http\Controllers\ProgramaEstudioController;
+use App\Http\Controllers\GradoAcademicoController;
+use App\Http\Controllers\PreguntasController;
+use App\Http\Controllers\DocentesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,5 +45,9 @@ Route::get('/inicio', function () {
 });
 //ruta para el controlador y la vista personas
 Route::resource("personas",PersonasController::class);
-Route::resource("sexos",SexoController::class);
-
+Route::resource("sexo",SexoController::class);
+Route::resource("estadocivil",EstadoCivilController::class);
+Route::resource("programaestudio",ProgramaEstudioController::class);
+Route::resource("gradoacademico",GradoAcademicoController::class);
+Route::resource("preguntas",PreguntasController::class);
+Route::resource("docentes",DocentesController::class);
