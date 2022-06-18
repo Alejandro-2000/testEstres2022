@@ -41,54 +41,19 @@
                                 Dashboard
                             </a>
 
-                            <a class="nav-link" href="{{url("/personas")}}">
+                            <a class="nav-link" href="{{url("/user/pruebas")}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Personas
+                                Datos Personales
                             </a>
 
-                            <a class="nav-link" href="{{url("/docentes")}}">
+                            <a class="nav-link" href="{{url("/user/test")}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Docentes
+                                Prueba Estres
                             </a>
 
-                            <a class="nav-link" href="{{url("/administradores")}}">
+                            <a class="nav-link" href="{{url("/user/resultados")}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Administradores
-                            </a>
-
-                            <a class="nav-link" href="{{url("/preguntas")}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Preguntas
-                            </a>
-
-                            <a class="nav-link" href="{{url("/encuestas")}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Encuestas
-                            </a>
-
-                            <a class="nav-link" href="{{url("/respuestas")}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Respuestas
-                            </a>
-
-                            <a class="nav-link" href="{{url("/programaestudio")}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Programa de Estudio
-                            </a>
-
-                            <a class="nav-link" href="{{url("/gradoacademico")}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Grado Academico
-                            </a>
-
-                            <a class="nav-link" href="{{url("/estadocivil")}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Estado Civil
-                            </a>
-
-                            <a class="nav-link" href="{{url("/sexo")}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Sexo
+                                Ver Resultado
                             </a>
 
                         </div>

@@ -17,17 +17,18 @@ class PersonasController extends Controller
      */
     public function index()
     {
-        $datos_personas=Personas::join("estado_civil","personas.id_estadocivil","estado_civil.id")
-            ->join("sexo","personas.id_sexo","sexo.id")
-            ->join("grado_acad","personas.id_gradoacad","grado_acad.id")
+        $datos_personas=Personas::all();
+        $datos_personas=Personas::join("estado_civil","personas.id_estadocivil","estado_civil.id_estadocivil")
+            ->join("sexo","personas.id_sexo","sexo.id_sexo")
+            ->join("grado_acad","personas.id_gradoacad","grado_acad.id_gradoacad")
             ->select("personas.*","estado_civil.descripcion","grado_acad.enunciado","sexo.descripcion_sexo")
             ->get();
 
-        $datos_estado_civil=EstadoCivil::all();
+        $datos_estadocivil=EstadoCivil::all();
         $datos_gradoacad=GradoAcademico::all();
         $datos_sexo=Sexo::all();
         //dd($datos_personas);
-        return view("personas.index",compact("datos_personas","datos_estado_civil","datos_sexo","datos_gradoacad"));
+        return view("personas.index",compact("datos_personas","datos_estadocivil","datos_sexo","datos_gradoacad"));
     }
 
     /**
@@ -48,7 +49,9 @@ class PersonasController extends Controller
      */
     public function store(Request $request)
     {
-
+        $datosPersonas = $request->all();
+        Personas::create($datosPersonas);
+        return redirect()->route('personas.index');
     }
 
     /**
@@ -59,7 +62,7 @@ class PersonasController extends Controller
      */
     public function show(Personas $persona)
     {
-        //
+        return back()->with(["modal_delete"=>true,"delete_persona"=>$persona]);
     }
 
     /**
@@ -70,7 +73,7 @@ class PersonasController extends Controller
      */
     public function edit(Personas $persona)
     {
-        //
+        return back()->with(["modal_edit"=>true,"edit_persona"=>$persona]);
     }
 
     /**
@@ -82,7 +85,8 @@ class PersonasController extends Controller
      */
     public function update(Request $request, Personas $persona)
     {
-        //
+        $persona->update($request->all());
+        return redirect('personas');
     }
 
     /**
@@ -93,6 +97,7 @@ class PersonasController extends Controller
      */
     public function destroy(Personas $persona)
     {
-        //
+        $persona->delete();
+        return redirect('personas');
     }
 }

@@ -1,7 +1,7 @@
 @extends("layouts.template")
 
 @section("title_section")
-    Preguntas
+    Administradores
 @endsection
 
 @section("content")
@@ -16,42 +16,33 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Nombre Completo</th>
-            <th scope="col">Estado Civil</th>
-            <th scope="col">Sexo</th>
-            <th scope="col">Grado Academico</th>
-            <th scope="col">Correo</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($datos_personas as $persona)
+        @foreach($datos_administradores as $administrador)
             <tr>
-                <td scope="col">{{$loop->index+1}}</th>
-                <td scope="col">{{$persona->nombre}}</th>
-                <td scope="col">{{$persona->descripcion}}</th>
-                <td scope="col">{{$persona->descripcion_sexo}}</th>
-                <td scope="col">{{$persona->enunciado}}</th>
-                <td scope="col">{{$persona->correo}}</th>
-                <td>
+                <td scope="col">{{$loop->index+1}}</td>
+                <td scope="col">{{$administrador->nombre}}</td>
                 <td>
                     {{--boton para editar primero debe conocer cual es el id que se desea editar entrando al metodo edit--}}
-                    <a href="{{route("personas.edit",$persona->id_persona)}}" class="btn btn-sm btn-success"><i class="far fa-edit"></i></a>
+                    <a href="{{route("administradores.edit",$administrador->id_admin)}}" class="btn btn-sm btn-success"><i class="far fa-edit"></i></a>
                 </td>
                 <td>
                     {{--boton para editar primero debe conocer cual es el id que se desea editar entrando al metodo edit--}}
-                    <a href="{{route("personas.show",$persona->id_persona)}}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+                    <a href="{{route("administradores.show",$administrador->id_admin)}}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         @endforeach
     </table>
     {{--incluir las vistas donde estan los datos--}}
-    @include("personas.create")
+    @include("administradores.create")
 
     @if(session("modal_edit"))
-        @include("personas.edit")
+        @include("administradores.edit")
     @endif
 
     @if(session("modal_delete"))
-        @include("personas.delete")
+        @include("administradores.delete")
     @endif
 
     {{--condicion para diferenciar los metodos agregar y editar--}}
@@ -59,7 +50,7 @@
     @if(array_key_exists("_method",Session::get("_old_input"))) {{--::get es una llamada a un metodo abstracto para sacar el valor del parametro que recibe--}}
     mensaje desde la validacion de editar
     {{--dd(session()->all())--}}
-    @include("personas.edit")
+    @include("administradores.edit")
     @else
         mensaje de validacion desde crear
         {{--recargar el modal si es que existe un error de validacion en algun dato--}}

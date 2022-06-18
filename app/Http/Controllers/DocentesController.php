@@ -21,7 +21,7 @@ class DocentesController extends Controller
             ->join("programa_estudios","docentes.id_programa","programa_estudios.id_programa")
             ->select("docentes.*","personas.nombre","programa_estudios.descripcion_carrera")
             ->get();
-//$datos_docentes=Docentes::all();
+
         $datos_personas=Personas::all();
         $datos_programa=ProgramaEstudio::all();
         //dd($datos_personas);
@@ -46,10 +46,12 @@ class DocentesController extends Controller
      */
     public function store(Request $request)
     {
-        Docentes::create([
+        /*Docentes::create([
             'id_persona'=>$request->id_persona,
             'id_programa'=>$request->id_carrera,
-        ]);
+        ]);*/
+        $datosDocentes = $request->all();
+        Docentes::create($datosDocentes);
         return redirect()->route('docentes.index');
     }
 
@@ -61,6 +63,11 @@ class DocentesController extends Controller
      */
     public function show(Docentes $docente)
     {
+        $docente=$docente::join('personas','docentes.id_persona','personas.id_persona')
+            ->whereIdDocente($docente->id_docente)
+            ->select('docentes.id_docente','personas.nombre')
+            ->first();
+        //dd($docente);
         return back()->with(["modal_delete"=>true,"delete_docente"=>$docente]);
     }
 

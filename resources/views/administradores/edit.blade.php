@@ -4,13 +4,13 @@
 
         @php
             //$edit_persona = session("edit_persona");
-            $edit_docente = Session::has("edit_docente") ? session("edit_docente") : Session::get("_old_input");
+            $edit_administrador = Session::has("edit_administrador") ? session("edit_administrador") : Session::get("_old_input");
         @endphp
 
         <!-- Modal content-->
-        <form method="POST"  action="{{url('/docentes/'.(isset($edit_docente->id_docentes) ? $edit_docente->id_docentes : $edit_docente["id_docente"]))}}" role="form" enctype="multipart/form-data">
+        <form method="POST"  action="{{url('/administradores/'.(isset($edit_administrador->id_admin) ? $edit_administrador->id_admin : $edit_administrador["id_admin"]))}}" role="form" enctype="multipart/form-data">
             <div class="modal-content">
-                <input type="hidden" value="{{isset($edit_docente->id_docente) ? $edit_docente->id_docente : $edit_docente["id_docente"]}}" name="id_docente">
+                <input type="hidden" value="{{isset($edit_administrador->id_admin) ? $edit_administrador->id_admin : $edit_administrador["id_admin"]}}" name="id_admin">
             <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Editar Registro</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -35,25 +35,11 @@
                                                             <option value="" selected disabled>Selecciona un valor</option>
 
                                                             @foreach($datos_personas as $persona)
-                                                                <option value="{{$persona->id_persona}}" {{(isset($edit_docente->id_persona) ? $edit_docente->id_persona : $edit_docente["id_persona"]) == $persona->id_persona ? "selected":""}}>{{$persona->nombre}}</option>
+                                                                <option value="{{$persona->id_persona}}" {{(isset($edit_administrador->id_persona) ? $edit_administrador->id_persona : $edit_administrador["id_persona"]) == $persona->id_persona ? "selected":""}}>{{$persona->nombre}}</option>
                                                             @endforeach
                                                         </select>
                                                         @if($errors->has('id_persona')) {{--creacion de un span en caso de existir error--}}
                                                             <span class="text-danger">{{ $errors->first('id_persona') }}</span>
-                                                        @endif
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="programa">Programa de Estudio</label>
-                                                        <select name="id_programa" class="form-control{{$errors->has('id_programa') ? ' is-invalid' : ''}}">
-                                                            <option value="" selected disabled>Selecciona un valor</option>
-
-                                                            @foreach($datos_programa as $programa)
-                                                                <option value="{{$programa->id_programa}}" {{(isset($edit_docente->id_programa) ? $edit_docente->id_programa : $edit_docente["id_programa"]) == $programa->id_programa ? "selected":""}}>{{$programa->descripcion_carrera}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @if($errors->has('id_programa')) {{--creacion de un span en caso de existir error--}}
-                                                            <span class="text-danger">{{ $errors->first('id_programa') }}</span>
                                                         @endif
                                                     </div>
 

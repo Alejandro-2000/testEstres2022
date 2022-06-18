@@ -9,6 +9,12 @@ use App\Http\Controllers\ProgramaEstudioController;
 use App\Http\Controllers\GradoAcademicoController;
 use App\Http\Controllers\PreguntasController;
 use App\Http\Controllers\DocentesController;
+use App\Http\Controllers\AdministradoresController;
+use App\Http\Controllers\EncuestasController;
+use App\Http\Controllers\RespuestasController;
+use App\Http\Controllers\PruebaController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\ResultadoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +46,7 @@ Route::get('/registro',function (){
     return view('landing.registro');
 });
 ///////////////////////////////////////////////////
-Route::get('/inicio', function () {
+Route::get('/home', function () {
     return view('layouts.template');
 });
 //ruta para el controlador y la vista personas
@@ -51,3 +57,13 @@ Route::resource("programaestudio",ProgramaEstudioController::class);
 Route::resource("gradoacademico",GradoAcademicoController::class);
 Route::resource("preguntas",PreguntasController::class);
 Route::resource("docentes",DocentesController::class);
+Route::resource("administradores",AdministradoresController::class);
+Route::resource("encuestas",EncuestasController::class);
+Route::resource("respuestas",RespuestasController::class);
+
+Route::get('/inicio', function () {
+    return view('layouts.template_user');
+});
+Route::resource("user/pruebas",PruebaController::class);
+Route::resource("user/test",TestController::class);
+Route::resource("user/resultados",ResultadoController::class);

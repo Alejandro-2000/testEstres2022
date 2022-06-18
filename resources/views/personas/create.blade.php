@@ -13,42 +13,42 @@
                         <div class="box-body">
 
                             <div class="form-group">
-                                <label for="nombre">Nombre Completo</label>
+                                <label for="nombre">Nombre</label>
                                 <input type="text" name="nombre" class="form-control{{$errors->has('nombre') ? ' is-invalid' : ''}}" placeholder="Nombre">
                                 @if($errors->has('nombre')) {{--creacion de un span en caso de existir error--}}
-                                <span class="text-danger">{{ $errors->first('nombre') }}</span>
+                                    <span class="text-danger">{{ $errors->first('nombre') }}</span>
                                 @endif
                             </div>
 
                             <div class="form-group">
                                 <label for="estado_civil">Estado Civil</label>
-                                <select name="estado_civil" class="form-control{{$errors->has('estado_civil') ? ' is-invalid' : ''}}" placeholder="Estado Civil">
+                                <select name="id_estadocivil" class="form-control{{$errors->has('id_estadocivil') ? ' is-invalid' : ''}}" placeholder="Estado Civil">
                                     <option value="" selected disabled>Selecciona un valor</option>
 
-                                    @foreach($datos_estado_civil as $estado_civil)
-                                        <option value="{{$estado_civil->id}}">{{$estado_civil->descripcion}}</option>
+                                    @foreach($datos_estadocivil as $estado_civil)
+                                        <option value="{{$estado_civil->id_estadocivil}}">{{$estado_civil->descripcion}}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label for="sexo">Sexo</label>
-                                <select name="sexo" class="form-control{{$errors->has('sexo') ? ' is-invalid' : ''}}" placeholder="Sexo">
+                                <select name="id_sexo" class="form-control{{$errors->has('id_sexo') ? ' is-invalid' : ''}}">
                                     <option value="" selected disabled>Selecciona un valor</option>
 
                                     @foreach($datos_sexo as $sexo)
-                                        <option value="{{$sexo->id}}">{{$sexo->descripcion_sexo}}</option>
+                                        <option value="{{$sexo->id_sexo}}">{{$sexo->descripcion_sexo}}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="grado_acad">Grado Academico</label>
-                                <select name="grado_acad" class="form-control{{$errors->has('grado_acad') ? ' is-invalid' : ''}}" placeholder="Grado Academico">
+                                <label for="gradoacademico">Grado Academico</label>
+                                <select name="id_gradoacad" class="form-control{{$errors->has('id_gradoacad') ? ' is-invalid' : ''}}">
                                     <option value="" selected disabled>Selecciona un valor</option>
 
                                     @foreach($datos_gradoacad as $grado)
-                                        <option value="{{$grado->id}}">{{$grado->enunciado}}</option>
+                                        <option value="{{$grado->id_gradoacad}}">{{$grado->enunciado}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -57,7 +57,7 @@
                                 <label for="correo">Correo</label>
                                 <input type="email" name="correo" class="form-control{{$errors->has('correo') ? ' is-invalid' : ''}}" placeholder="Correo">
                                 @if($errors->has('correo')) {{--creacion de un span en caso de existir error--}}
-                                <span class="text-danger">{{ $errors->first('correo') }}</span>
+                                    <span class="text-danger">{{ $errors->first('correo') }}</span>
                                 @endif
                             </div>
 
@@ -65,7 +65,7 @@
                                 <label for="password">Contraseña</label>
                                 <input type="password" name="password" class="form-control{{$errors->has('password') ? ' is-invalid' : ''}}" placeholder="Contraseña">
                                 @if($errors->has('password')) {{--creacion de un span en caso de existir error--}}
-                                <span class="text-danger">{{ $errors->first('password') }}</span>
+                                    <span class="text-danger">{{ $errors->first('password') }}</span>
                                 @endif
                             </div>
 

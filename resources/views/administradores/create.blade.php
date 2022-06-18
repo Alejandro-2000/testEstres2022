@@ -1,7 +1,7 @@
 <!-- Modal para insertar datos-->
 <div class="modal fade" id="modal_agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form method="POST" action="{{ route('docentes.store') }}"  role="form" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('administradores.store') }}"  role="form" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Nuevo Registro</h5>
@@ -19,17 +19,6 @@
 
                                     @foreach($datos_personas as $persona)
                                         <option value="{{$persona->id_persona}}">{{$persona->nombre}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="programa">Programa de Estudio</label>
-                                <select name="id_programa" class="form-control{{$errors->has('id_programa') ? ' is-invalid' : ''}}">
-                                    <option value="" selected disabled>Selecciona un valor</option>
-
-                                    @foreach($datos_programa as $programa)
-                                        <option value="{{$programa->id_programa}}">{{$programa->descripcion_carrera}}</option>
                                     @endforeach
                                 </select>
                             </div>

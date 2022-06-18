@@ -1,6 +1,6 @@
 {{--modal delete solo un modal para todos los registros--}}
 @php
-    $delete_persona = session("delete_persona");
+    $delete_administrador = session("delete_administrador");
 @endphp
 <div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -9,10 +9,10 @@
                 Eliminar Registro
             </div>
             <div class="modal-body">
-                ¿Esta seguro de eliminar el registro {{$delete_persona->nombre}}?
+                ¿Esta seguro de eliminar el registro {{$delete_administrador->nombre}}?
             </div>
             <div class="modal-footer" >
-                <form action="{{route('personas.destroy',$delete_persona->id_persona)}}" method="POST">
+                <form action="{{route('administradores.destroy',$delete_administrador->id_admin)}}" method="POST">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
